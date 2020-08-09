@@ -1,0 +1,33 @@
+{
+  "name": "textland",
+  "version": "1.0.0",
+  "description": "a text rpg game, just have fun :)",
+  "private": true,
+  "scripts": {
+    "build": "webpack",
+    "serve": "webpack-dev-server --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hantaogo/textland.git"
+  },
+  "keywords": [
+    "text",
+    "rpg",
+    "game"
+  ],
+  "author": "Japple",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hantaogo/textland/issues"
+  },
+  "homepage": "https://github.com/hantaogo/textland#readme",
+  "dependencies": {
+    "pixi.js": "^5.3.3"
+  },
+  "devDependencies": {
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
