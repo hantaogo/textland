@@ -1,23 +1,32 @@
-let Game = class Game {
+const Game = class Game {
   constructor() {
     this.nodes = []
   }
 
   push(node) {
-    node.onEnter()
+    app.stage.addChild(node)
+    if (this.nodes.length > 0) {
+      this.nodes[this.nodes.length - 1].visible = false
+    }
     this.nodes.push(node)
+    node.onEnter()
   }
 
   pop() {
-    let node = this.nodes.pop()
+    const node = this.nodes.pop()
     node.onExit()
+    app.stage.removeChild(node)
+    if (this.nodes.length > 0) {
+      this.nodes[this.nodes.length - 1].visible = true
+    }
   }
 
   remove(node) {
-    let index = this.nodes.indexOf(node)
+    const index = this.nodes.indexOf(node)
     if (index !== -1) {
       node.onExit()
       this.nodes.splice(index, 1)
+      app.stage.removeChild(node)
     }
   }
 
@@ -25,6 +34,7 @@ let Game = class Game {
     for (let t in this.nodes) {
       t.onExit()
     }
+    app.stage.removeChildren()
     this.nodes.clear()
   }
 }

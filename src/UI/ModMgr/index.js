@@ -1,9 +1,9 @@
-import { newUI } from '@/UI/utils'
+import { resources } from "pixi.js";
 
-const MainMenu = class MainMenu extends PIXI.Container {
+const ModMgr = class ModMgr extends PIXI.Container {
   constructor() {
     super();
-    this.name = 'MainMenu';
+    this.name = 'ModMgr';
   }
 
   onEnter() {
@@ -24,21 +24,21 @@ const MainMenu = class MainMenu extends PIXI.Container {
       wordWrap: true,
       wordWrapWidth: 440,
     });
-    const title = new PIXI.Text('Textland', style);
+    const title = new PIXI.Text('Mods', style);
     title.anchor.x = 0.5;
     title.x = app.renderer.width / 2;
     title.y = 120;
     this.addChild(title);
-    // Mods库
-    app.loader.add('mods', 'assets/mods.png').load((loader, resources) => {
+    // 返回
+    app.loader.add('back', 'assets/back.png').load((loader, resources) => {
       const btn = new PIXI.Sprite(resources.mods.texture);
       btn.x = app.renderer.width / 2;
       btn.y = app.renderer.height / 2;
       btn.anchor.x = 0.5;
       btn.anchor.y = 0.5;
       btn.interactive = true
-      btn.on('click', () => {
-        game.push(newUI('ModMgr'));
+      btn.addListener('click', () => {
+        game.pop()
       })
       this.addChild(btn);
     })
@@ -48,4 +48,4 @@ const MainMenu = class MainMenu extends PIXI.Container {
   }
 }
 
-export default MainMenu
+export default ModMgr
