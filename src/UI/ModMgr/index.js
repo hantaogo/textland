@@ -1,5 +1,3 @@
-import { resources } from "pixi.js";
-
 const ModMgr = class ModMgr extends PIXI.Container {
   constructor() {
     super();

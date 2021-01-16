@@ -22,9 +22,7 @@
     "url": "https://github.com/hantaogo/textland/issues"
   },
   "homepage": "https://github.com/hantaogo/textland#readme",
-  "dependencies": {
-    "pixi.js": "^5.3.3"
-  },
+  "dependencies": {},
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.4.1",
