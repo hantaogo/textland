@@ -1,6 +1,7 @@
 import { newUI } from '@/UI/utils'
+import Button from '../Base/Button'
 
-const MainMenu = class MainMenu extends PIXI.Container {
+export default class MainMenu extends PIXI.Container {
   constructor() {
     super();
     this.name = 'MainMenu';
@@ -29,23 +30,33 @@ const MainMenu = class MainMenu extends PIXI.Container {
     title.x = app.renderer.width / 2;
     title.y = 120;
     this.addChild(title);
-    // Mods库
-    app.loader.add('mods', 'assets/mods.png').load((loader, resources) => {
-      const btn = new PIXI.Sprite(resources.mods.texture);
-      btn.x = app.renderer.width / 2;
-      btn.y = app.renderer.height / 2;
-      btn.anchor.x = 0.5;
-      btn.anchor.y = 0.5;
-      btn.interactive = true
-      btn.on('click', () => {
-        game.push(newUI('ModMgr'));
-      })
-      this.addChild(btn);
+    
+    // 加载资源
+    app.loader
+    .add('assets/normal.png')
+    .add('assets/down.png')
+    .add('assets/over.png')
+    .load((loader, resources) => this._assetsLoaded(loader, resources))
+  }
+
+  _assetsLoaded(loader, resources) {
+    const btn = new Button({
+      normalTexture: resources['assets/normal.png'].texture, 
+      downTexture: resources['assets/down.png'].texture,
+      overTexture: resources['assets/over.png'].texture,
+      textString: '你好',
+      textStyle: {
+        fontSize: 24
+      }
     })
+    btn.x = app.renderer.width / 2
+    btn.y = app.renderer.height / 2
+    btn.on('click', () => {
+      console.log('点击')
+    })
+    this.addChild(btn)
   }
 
   onExit() {
   }
 }
-
-export default MainMenu
