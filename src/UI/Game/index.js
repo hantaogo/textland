@@ -1,5 +1,4 @@
 import Button from '@/UI/Base/Button'
-import Game from '@/UI/Game'
 
 export default class MainMenu extends PIXI.Container {
 
@@ -26,7 +25,7 @@ export default class MainMenu extends PIXI.Container {
       wordWrap: true,
       wordWrapWidth: 440,
     })
-    const title = new PIXI.Text('Textland', style)
+    const title = new PIXI.Text('Hello Game', style)
     title.anchor.x = 0.5
     title.x = app.renderer.width / 2
     title.y = 120
@@ -49,7 +48,7 @@ export default class MainMenu extends PIXI.Container {
     btn.x = app.renderer.width / 2
     btn.y = app.renderer.height / 2
     btn.on('click', () => {
-      stage.push(new Game())
+      stage.pop()
     })
     this.addChild(btn)
   }

@@ -23,7 +23,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'textland',
+      title: 'Text Land',
       template: 'index.html',
     }),
     new CleanWebpackPlugin(),

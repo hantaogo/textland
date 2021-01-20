@@ -1,4 +1,4 @@
-import Game from "@/Core/Game"
+import Stage from "@/UI/Base/Stage"
 import MainMenu from "@/UI/MainMenu"
 
 // 初始化PIXI
@@ -8,9 +8,9 @@ document.body.appendChild(app.view)
 window.app = app
 
 // 游戏对象是管理游戏舞台的
-const game = new Game()
-// 为了方便调用，app设置为全局变量
-window.game = game
+const stage = new Stage()
+// 为了方便调用，stage设置为全局变量
+window.stage = stage
 
 // 进入主菜单
-game.push(new MainMenu())
+stage.push(new MainMenu())
